@@ -3,7 +3,7 @@ document.addEventListener('DomContentLoaded', () => {
     const width = 10
     const height = 20
 
-    //The Tetrimonoes
+    //The Tetrominoes
     const  Tetromino = [
         [1, width+1, width*2+1, 2],
         [width, width+1, width+2, width*2+2],
@@ -42,7 +42,9 @@ document.addEventListener('DomContentLoaded', () => {
     const Tetromiones = [Tetromino, zTetromino, tTetromino, oTetromino, iTetromino]
     
     //randomly select Tetromino
-    
+    let random = Math.floor(Math.random()*theTetromiones.lenght)
+    let CurrentRotation = 0
+    let current = theTetromiones[random][currentRotation]
 
 })
 
