@@ -53,11 +53,22 @@ document.addEventListener('DomContentLoaded', () => {
     //draw the shape
     function draw() {
         current.forEach ( index => (
-            square[CurrentPosition + index].classList.add('block')
-        )
-
-        )        
+            square[currentPosition + index].classList.add('block')
+        ))        
     }
+
+    //undraw
+    function undraw() {
+        current.forEach( index => {
+            squares[currentPosition + index].classList.remove('block')
+        }
+
+        )
+    }
+
+
+
+
 })
 
 
