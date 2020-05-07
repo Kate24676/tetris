@@ -61,12 +61,16 @@ document.addEventListener('DomContentLoaded', () => {
     function undraw() {
         current.forEach( index => {
             squares[currentPosition + index].classList.remove('block')
-        }
-
-        )
+        })
     }
 
-
+    //move down shape
+    function moveDown() {
+        undraw()
+        currentPosition = currentPosition += width
+        draw()
+        freeze()
+    }
 
 
 })
