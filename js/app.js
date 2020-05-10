@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //show previous tetromino is displaySquares
     const displayWidth = 4
     const displayIndex = 0
+    let nextRandom = 0
 
     const  smallTetrominoes = [
         [1, displayWidth+1, displayWidth*2+1, 2], /* Tetromino */
@@ -136,6 +137,16 @@ document.addEventListener('DOMContentLoaded', () => {
         [0, 1, displayWidth, displayWidth+1], /* oTetromino */
         [1, displayWidth+1, displayWidth*2+1, 3+1] /* iTetromino */
     ]
+
+    function displayShape() {
+        displaySquares.forEach(square => {
+            square.classList.remove('block')
+        })
+        smallTetrominoes[nextRandom].forEach(index => {
+            displaySquares[displayIndex + index].classList.add('block')
+        })
+    }
+    displayShape()
 })
 
 
