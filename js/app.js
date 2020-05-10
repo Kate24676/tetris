@@ -147,6 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
     displayShape()
+
+    //freeze the shape
+    function freeze() {
+        if(current.some(index => squares[currentPosition + index + width ].classList.contains('block3')
+        || squares[currentPosition + index + width].classList.contains('block2'))) {}
+    }
+
+
 })
 
 
