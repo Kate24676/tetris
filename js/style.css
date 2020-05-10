@@ -12,11 +12,16 @@ flex-wrap: wrap;
 }
 
 .previous-grid {
-    height: 400px;
-    width: 200px;
+    height: 80px;
+    width: 80px;
     display: flex;
     flex-wrap: wrap;
     }
+
+.previous-shape {
+    height: 80px;
+    width: 80px;
+}
     
 
 .block {
