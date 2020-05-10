@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const width = 10
     const height = 20
     let currentPosition = 4
+    let timerId = 
 
     //assign function to keycodes
 
@@ -64,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const Tetrominoes = [Tetromino, zTetromino, tTetromino, oTetromino, iTetromino]
     
     //randomly select Tetromino
-    let random = Math.floor(Math.random()*theTetromiones.lenght)
-    let CurrentRotation = 0
+    let random = Math.floor(Math.random()*theTetromiones.length)
+    let currentRotation = 0
     let current = theTetromiones[random][currentRotation]
 
 
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function rotate() {
         undraw()
         currentRotation ++ 
-        if(currentRotation === current.lenght) {
+        if(currentRotation === current.length) {
             currentRotation = 0
         }
         current = theTetrominoes [random] [currentRotation]
@@ -151,8 +152,28 @@ document.addEventListener('DOMContentLoaded', () => {
     //freeze the shape
     function freeze() {
         if(current.some(index => squares[currentPosition + index + width ].classList.contains('block3')
-        || squares[currentPosition + index + width].classList.contains('block2'))) {}
+        || squares[currentPosition + index + width].classList.contains('block2'))) {
+            current.forEach(index => squares[index + currentPosition].classList.add('block2'))
+
+            random = nextRandom 
+            nextRandom = Math.floor(Math.random() * theTetrominoes.length)
+            current = theTetrominoes[random] [currentRotation]
+            currentPosition = 4
+            draw()
+            displayShape()
+        }
     }
+
+    startBtn.addEventListener('click', () => {
+        if(timerId) {
+            clearInterval(timerId)
+            timerId = null
+        } else {
+            draw()
+            timerId = setInterval(moveDown, 1000)
+            nextRandom = Math.floor(Math.random*theTetrominoes.length)
+        }
+    })
 
 
 })
