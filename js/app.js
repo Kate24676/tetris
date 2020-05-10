@@ -15,7 +15,14 @@ document.addEventListener('DomContentLoaded', () => {
         else if(e.KeyCode === 38) {
             rotate()
         }
+        else if(e.KeyCode === 37) {
+            moveLeft()
+        }
+        else if(e.KeyCode === 40) {
+            moveDown()
+        }
     }
+    document.addEventListener('keyup', control)
 
     //The Tetrominoes
     const  Tetromino = [
@@ -116,6 +123,7 @@ document.addEventListener('DomContentLoaded', () => {
         draw()
 
     }
+draw()
 
 })
 
