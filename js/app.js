@@ -4,7 +4,18 @@ document.addEventListener('DomContentLoaded', () => {
     let squares = Array.from(grid.querySelectorAll('div'))
     const width = 10
     const height = 20
-    let CurrentPosition = 4
+    let currentPosition = 4
+
+    //assign function to keycodes
+
+    function control(e) {
+        if(e.KeyCode === 39) {
+            moveRight()
+        }
+        else if(e.KeyCode === 38) {
+            rotate()
+        }
+    }
 
     //The Tetrominoes
     const  Tetromino = [
@@ -42,7 +53,7 @@ document.addEventListener('DomContentLoaded', () => {
         [width, width+1, width+2, width+3],
     ]
 
-    const Tetromiones = [Tetromino, zTetromino, tTetromino, oTetromino, iTetromino]
+    const Tetrominoes = [Tetromino, zTetromino, tTetromino, oTetromino, iTetromino]
     
     //randomly select Tetromino
     let random = Math.floor(Math.random()*theTetromiones.lenght)
@@ -79,8 +90,31 @@ document.addEventListener('DomContentLoaded', () => {
         const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1)
         if(!isAtRightEdge) currentPosition += 1
         if (current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
-            currentPosition -= 1
+            currentPosition -=1
         }
+        draw()
+    }
+
+    function moveLeft() {
+        undraw()
+        const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
+        if(!isAtLeftEdge) currentPosition -= 1
+        if(current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+            currentPosition +=1
+        }
+        draw()
+    }
+
+    //rotate Tetromino
+    function rotate() {
+        undraw()
+        currentRotation ++ 
+        if(currentRotation === current.lenght) {
+            currentRotation = 0
+        }
+        current = theTetrominoes [random] [currentRotation]
+        draw()
+
     }
 
 })
