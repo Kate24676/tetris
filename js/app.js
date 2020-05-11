@@ -166,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPosition = 4
             draw()
             displayShape()
+            gameOver()
         }
     }
 
@@ -180,6 +181,14 @@ document.addEventListener('DOMContentLoaded', () => {
             displayShape()
         }
     })
+
+    //game over
+    function gameOver() {
+        if(current.some(index => squares[currentPosition + index].classList.contains('block2'))) {
+            scoreDisplay.innerHTML = 'end'
+            clearInterval(timerId)
+        }
+    }
 
 
 })
