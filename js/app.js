@@ -1,12 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    
+    const startBtn = document.querySelector('button')
     const grid = document.querySelector('.grid')
+    const scoreDisplay = document.querySelector('.score-display')
+    const linesDisplay = document.querySelector('.lines-display')
     const displaySquares = document.querySelectorAll('.previous-grid div')
     let squares = Array.from(grid.querySelectorAll('div'))
     const width = 10
     const height = 20
     let currentPosition = 4
-    let timerId = 
+    let timerId 
+    let score = 0
+    let lines = 0
 
     //assign function to keycodes
 
