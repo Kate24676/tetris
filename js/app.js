@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
             draw()
             displayShape()
             gameOver()
+            addScore()
         }
     }
 
@@ -208,6 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    //splice array
+    const squaresRemoved = squares.splice(currentIndex, width)
+    squares = squaresRemoved.concat(squares)
+    squares.forEach(cell = grid.appendChild(cell))
 })
 
 
